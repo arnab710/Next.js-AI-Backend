@@ -46,8 +46,6 @@ Next.js versions 13 and 14 introduce an interaction model with the APP router, d
 - **Efficiency and Performance:**
   - This consolidated approach in a single route ensures efficient handling of requests and responses, providing a seamless user experience.
 
-### 3. Implementing the POST Request Handler (Continued)
-
 #### Detailed Breakdown of `route.ts`
 
 This file is the heart of our backend API, handling the interaction between the frontend, the AI model, and the client.
