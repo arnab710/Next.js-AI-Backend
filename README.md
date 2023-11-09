@@ -30,3 +30,18 @@ Next.js versions 13 and 14 introduce an interaction model with the APP router, d
 - **Accessing the API Endpoint:**
   - The structure of your folders and files within the `API` directory directly corresponds to the URL path of your API endpoint.
   - For example, if you place your `route.ts` file within a folder path like `api/response`, your API endpoint will be accessible at the same path (e.g., `/api/response`).
+
+### 3. Implementing the POST Request Handler
+
+- **Single-Route Configuration:**
+  - Set up a POST request handler within your route file (`route.ts` or `route.js`). This handler is the core of your API's functionality.
+- **Workflow of the Handler:**
+
+  - The handler is designed to perform multiple key operations in a single route:
+    1. **Receiving User Messages:** It starts by accepting messages from the user sent from the client side.
+    2. **Communication with AI Model:** The received user input is then forwarded to the AI model (`OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5`).
+    3. **Handling Streamed Responses:** The AI model processes the input and sends back a streamed response.
+    4. **Relaying Response to Client:** Finally, this streamed response is sent back to the client, completing the interaction loop.
+
+- **Efficiency and Performance:**
+  - This consolidated approach in a single route ensures efficient handling of requests and responses, providing a seamless user experience.
