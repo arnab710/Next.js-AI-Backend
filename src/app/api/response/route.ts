@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
 		const max_prompt_length: number = Number(process.env.INPUT_PROMPT_LENGTH);
 
 		// checking if prompt length crossed the limit
-		if (prompt.length > max_prompt_length) return NextResponse.json({ result: "fail", message: `Message too long ! Please keep it under ${String(max_prompt_length)} words` });
+		if (prompt.length > max_prompt_length) return NextResponse.json({ result: "fail", message: `Message too long ! Please keep it under ${String(max_prompt_length)} characters` });
 
 		//generating the response
 		const response = await Hf.textGenerationStream(
