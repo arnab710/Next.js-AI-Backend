@@ -80,3 +80,33 @@ This file is the heart of our backend API, handling the interaction between the 
 
 - **Error Handling:**
   - Errors are logged (in the development environment) and an appropriate error response is sent back to the client.
+
+### 4. Configuring CORS Policy with Middleware
+
+The final step in setting up our API is to configure the Cross-Origin Resource Sharing (CORS) policies. This is crucial for managing how resources in your API are shared across different origins. We handle this through middleware in Next.js.
+
+- **Creating Middleware:**
+
+  - Begin by creating a file named `middleware.ts` (or `middleware.js` for JavaScript) in your project.
+  - This middleware file will be responsible for setting up the necessary CORS response headers.
+
+- **Implementing CORS Middleware:**
+
+  - Here's the implementation of the middleware that sets up the CORS policy:
+
+  ```typescript
+  import { NextResponse } from "next/server";
+
+  export function middleware() {
+  	// retrieving the current response
+  	const res = NextResponse.next();
+
+  	// adding the CORS headers to the response
+  	res.headers.append("Access-Control-Allow-Credentials", "true");
+  	res.headers.append("Access-Control-Allow-Origin", "*"); // replace this with your actual origin in production
+  	res.headers.append("Access-Control-Allow-Methods", "GET,DELETE,PATCH,POST,PUT");
+  	res.headers.append("Access-Control-Allow-Headers", "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version");
+
+  	return res;
+  }
+  ```
