@@ -45,3 +45,40 @@ Next.js versions 13 and 14 introduce an interaction model with the APP router, d
 
 - **Efficiency and Performance:**
   - This consolidated approach in a single route ensures efficient handling of requests and responses, providing a seamless user experience.
+
+### 3. Implementing the POST Request Handler (Continued)
+
+#### Detailed Breakdown of `route.ts`
+
+This file is the heart of our backend API, handling the interaction between the frontend, the AI model, and the client.
+
+#### POST Route Screenshot for Reference
+
+![Screenshot 2023-11-10 034727](https://github.com/arnab710/Next.js-AI-Backend/assets/107277776/e39221fb-f09f-4e96-aa22-18c4873ea3c9)
+
+- **Hugging Face Inference Instance:**
+
+  - An instance of `HfInference` is created using the Hugging Face API key, facilitating communication with the AI model.
+
+- **Setting the Runtime Environment:**
+
+  - The runtime for the route is set to "edge" for optimal performance.
+
+- **POST Request Handler:**
+
+  - The main function handling POST requests, responsible for processing user input and interacting with the AI model.
+
+- **Extracting User Prompt:**
+
+  - The user's prompt is extracted from the request body and validated for content and length.
+
+- **Generating Response from AI Model:**
+
+  - The user's prompt is sent to the AI model, and a streamed response is awaited.
+
+- **Streaming the Response Back:**
+
+  - The AI model's response is converted into a stream and sent back to the client in real-time.
+
+- **Error Handling:**
+  - Errors are logged (in the development environment) and an appropriate error response is sent back to the client.
