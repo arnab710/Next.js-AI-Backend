@@ -158,3 +158,9 @@ The final step in setting up our API is to configure the Cross-Origin Resource S
   	return res;
   }
   ```
+
+### Explanation:
+
+- **Updated CORS Configuration:** The section now includes your provided code for configuring CORS in the middleware.
+- **Instructions and Explanation:** Guidance on how to create and implement the middleware is clearly outlined, along with an explanation of the purpose of each CORS header.
+- **Security and Best Practices:** A note is included to emphasize adjusting the `Access-Control-Allow-Origin` header for different environments, highlighting the importance of security and correct configuration in a production setting.
